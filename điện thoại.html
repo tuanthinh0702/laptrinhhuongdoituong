@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>điện thoại</title>
+</head>
+<body>
+<script>
+   var dienthoai =  function (nameMobile) {
+     this.pin =100 ;
+     this.name = nameMobile;
+     this.vungnhotinnhansoanthao =[];
+     this.vungnhohopthuden = [];
+     this.vungnhotinnhangui = [];
+      this.trangthaibat=true;
+      this.kiemttrabattat =function () {
+     if(this.trangthaibat)
+     {
+        return true;
+     }
+     else
+     {
+       return false;
+     }
+      };
+
+     this.kiemtradienthoai = function () {
+        return this.trangthaibat;
+
+     };
+      this.batdienthoai = function () {
+             this.trangthaibat=true;
+
+      };
+
+     this.tatdienthoai = function () {
+                this.trangthaibat=false;
+
+     };
+
+     this.sacpindienthoai = function () {
+       if (this.pin == 0) {
+         this.pin++;
+       }
+
+     };
+     this.soantinnhan = function (tinnhan) {
+       if(kiemtradienthoai)
+       {
+               this.vungnhotinnhansoanthao.push(tinnhan);
+               this.giampin();
+       }
+       else {
+               alert("dien thoai chua mo");
+       }
+
+
+          };
+
+        this.nhantinnhantudienthoaikhac = function(tinnhan,dienthoai)
+        {
+          if(this.kiemtradienthoai)
+          this.vungnhotinnhangui.push(this.soantinnhan[tinnhan]) ;          //vungnhodangsoanthao.push(tinnhan);
+          dienthoai = this.vungnhohopthuden.push(this.soantinnhan[tinnhan])
+          this.giampin();
+        }
+
+        this.guitinnhan = function (tinnhan,dienthoai) {
+          if(this.kiemtradienthoai)
+          {
+            this.vungnhotinnhangui.push(this.soantinnhan[tinnhan]);  //vungnhodangsoanthao.push(tinnhan);
+            dienthoai = alert("tin nhan da gui");
+            this.giampin();
+          }
+
+        }
+
+        this.xemtinhantuhopthuden = function () {
+          if(this.kiemtradienthoai)
+          {
+            if(this.vungnhohopthuden >0)
+            {
+              this.vungnhohopthuden.soantinnhan();
+              alert("ok");
+            }
+            this.giampin();
+          }
+
+        }
+
+        this.xemtinnhangui = function () {
+          if(kiemtradienthoai)
+          {
+            if(this.vungnhoguitinnhan>0)
+            {
+              this.vungnhotinnhangui.soantinnhan();
+            }
+            this.giampin();
+          }
+        }
+          this.giampin = function () {
+            this.pin--;
+
+          }
+
+
+
+
+   }
+   var nokia =  new dienthoai();
+   var iphone =  new dienthoai();
+   console.log(nokia.guitinnhan("tin nhan",iphone)) ;
+   console.log(nokia.xemtinhantuhopthuden()) ;
+</script>
+
+</body>
+</html>

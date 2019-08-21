@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài tập xây dựng lớp hình chữ nhật</title>
+</head>
+<body>
+
+
+<canvas id="display" width="200" height="200" border="1px" solid #dcdcdc ></canvas>
+<script>
+    let chieudai=parseInt(prompt("nhập chiều dài")) ;
+    let chieurong= parseInt(prompt("nhập chiều rộng")) ;
+let hcn = function (chieudai,chieurong) {
+    this.chieudai=chieudai;
+    this.chieurong=chieurong;
+    this.dientich= function () {
+       return  chieudai*chieurong;
+
+    }
+    this.chuvi= function () {
+        return  (chieudai+chieurong)*2;
+
+    }
+    this.vehinh = function () {
+        let  ctx=document.getElementById("display").getContext("2d");
+        ctx.beginPath();
+        ctx.fillStyle="red";
+        ctx.fillRect(50,50,chieudai,chieurong);
+
+    }
+
+}
+let hinhcn = new hcn(chieudai,chieurong);
+let dt= hinhcn.dientich();
+let cv=hinhcn.chuvi();
+let ve =hinhcn.vehinh();
+document.write("dien tich:"+dt+"&nbsp &nbsp","chu vi:"+cv);
+
+
+</script>
+</body>
+</html>

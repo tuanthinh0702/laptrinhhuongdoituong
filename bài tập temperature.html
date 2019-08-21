@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài tập temperature</title>
+</head>
+<body>
+<script>
+    let Temperature = function (tempC) {
+    this.tempC=tempC;
+    this.ConvertCtoF = function () {
+        return (tempC*1.8)+32;
+
+    }
+    this.ConvertCtoK = function () {
+        return tempC+273.15;
+
+    }
+    }
+    let doc = new Temperature(25);
+    let doF =doc.ConvertCtoF();
+    let dok =doc.ConvertCtoK();
+    alert("độ k"+dok);
+    alert("độ f"+doF);
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Xây dựng lớp mô tả điện thoại</title>
+</head>
+<body>
+<script>
+    let Mobile = function (capacityBattery, nameMobile) {
+        this.name = nameMobile;
+        this.capacityBattery = capacityBattery;
+        this.memoryTextingMessage = [];
+        this.memorySendMessage = [];
+        this.memoryIncomingMessage = [];
+        this.isTurnOn = true;
+        this.checkMobile = function () {
+            return this.isTurnOn;
+        };
+        this.checkOnOrOffMobile = function () {
+            if (this.isTurnOn) {
+                alert(this.name + " is on!")
+            } else {
+                alert(this.name + " is off!")
+            }
+        };
+        this.isTurnOnMobile = function () {
+            this.isTurnOn = true;
+            alert(this.name + "The mobile is on!")
+        };
+        this.isTurnOffMobile = function () {
+            this.isTurnOn = false;
+            alert(this.name + " is off!");
+        };
+        this.changerBattery = function () {
+            if (this.capacityBattery >= 100) {
+                return alert(this.name + ": Battery is full!");
+            } else {
+                this.capacityBattery = 100;
+                return alert(this.name + ": Battery is changed!");
+            }
+        };
+        this.textingMassage = function (dataMessage) {
+            if (this.checkMobile) {
+                this.memoryTextingMessage.push(dataMessage);
+                this.capacityBattery--;
+            } else {
+                alert(this.name + ": You need to turn on the mobile!");
+            }
+        };
+        this.sendMessage = function (locationMessage, mobile) {
+            if (this.checkMobile) {
+                alert(this.name + ": You have send a message!");
+                this.memorySendMessage.push(this.memoryTextingMessage[locationMessage]);
+                this.capacityBattery--;
+                mobile.memoryIncomingMessage.push(this.memoryTextingMessage[locationMessage]);
+                alert(mobile.name + ": You have received a message!");
+            } else {
+                alert(this.name + ": You need to open the mobile to send the message!");
+            }
+        };
+        this.checkIncomingMessage = function () {
+            if (this.checkMobile) {
+                alert(this.name + " You have " + this.memoryIncomingMessage.length + " incoming message!");
+                for (let i = 0; i < this.memoryIncomingMessage.length; i++) {
+                    document.write(this.name + ':' + '<br>' + 'Incoming Message:' + '<br>' + 'Message' + (i + 1) + ': ' + this.memoryIncomingMessage[i] + '<br>');
+                }
+                this.capacityBattery--;
+            } else {
+                alert(this.name + ": You need to turn on the mobile!");
+            }
+        };
+        this.checkSendMessage = function () {
+            if (this.checkMobile) {
+                alert(this.name + " You have " + this.memorySendMessage.length + " send message!");
+                for (let i = 0; i < this.memorySendMessage.length; i++) {
+                    document.write(this.name + ':' + '<br>' + 'Send Message:' + '<br>' + 'Message' + (i + 1) + ': ' + this.memorySendMessage[i] + '<br>');
+                }
+                this.capacityBattery--;
+            } else {
+                alert(this.name + ": You need to turn on the mobile!");
+            }
+        }
+    };
+    let nokia = new Mobile(100, 'Nokia');
+    let iphone = new Mobile(100, 'Iphone');
+    nokia.checkOnOrOffMobile();
+    iphone.checkOnOrOffMobile();
+    iphone.textingMassage("Hello.");
+    iphone.textingMassage("How are you.");
+    iphone.sendMessage(0, nokia);
+    nokia.checkIncomingMessage();
+    iphone.checkSendMessage();
+    nokia.changerBattery();
+    nokia.isTurnOffMobile();
+    nokia.checkOnOrOffMobile();
+</script>
+</body>
+</html>

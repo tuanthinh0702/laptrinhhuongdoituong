@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành xây dựng lớp date</title>
+</head>
+<body>
+<script>
+    let mydate = function ( day,month,year) {
+        this.day=day;
+        this.month=month;
+        this.year=year;
+        this.getDay=function () {
+            return this.day;
+
+        }
+        this.getMonth = function () {
+            return this.month;
+
+        }
+        this.getYear = function () {
+            return this.year;
+
+        }
+        this.setday = function (day) {
+            this.day=day;
+
+        }
+        this.setmonth= function (month)
+        {
+            this.month=month;
+        }
+        this.setyear= function (year) {
+            this.year=year
+
+        }
+    }
+   let Date = new mydate(7,2,1995);
+    let day = Date.getDay();
+    let month =Date.getMonth()
+    let year =Date.getYear();
+    alert(day+"/"+month+"/"+year);
+    Date.setday(12);
+    Date.setmonth(8);
+    Date.setyear(2019);
+
+    alert(day+"/"+month+"/"+year);
+    // let MyDate = function (day , month,year) {
+    //     this.day=day;
+    //     this.month=month;
+    //     this.year=year;
+    //
+    //     this.getDay = function()
+    //     {
+    //         return this.day;
+    //     };
+    //     this.getMonth = function () {
+    //         return this.month;
+    //
+    //     };
+    //     this.getYear = function () {
+    //         return this.year;
+    //
+    //     };
+    //     this. setDay = Function(day)
+    //     {
+    //         this.day = day;
+    //     }
+    //     this. setMonth = Function(month)
+    //     {
+    //         this.month = month;
+    //     }
+    //     this.setYear = Function (year)
+    //     {
+    //         this.year = year;
+    //     }
+    //
+    // };
+    //
+    //
+    // let date = new MyDate(2,2,2007);
+    // let day = date.getDay(); // 2
+    //
+    // let month = date.getMonth(); // 2
+    //
+    // let year = date.getYear(); // 2007
+    // alert(day + "/" + month + "/" + year);
+    // // date.setDay(10);
+    // // date.setMonth(10);
+    // // date.setYear(2019);
+    // // day = date.getDay();
+    // // month = date.getMonth();
+    // // year = date.getYear();
+    // // alert(day + "/" + month + "/" + year);
+</script>
+</body>
+</html>
